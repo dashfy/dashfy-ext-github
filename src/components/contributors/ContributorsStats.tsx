@@ -7,7 +7,7 @@ import {
   WidgetErrorBoundary,
   WidgetHeader,
   WidgetLoader,
-} from '@dashfy/ui'
+} from '@getdashfy/ui'
 import { UsersIcon } from 'lucide-react'
 
 import type { ContributorsResponse, GitHubContributor } from '@/types'

@@ -5,8 +5,8 @@ import type { GithubContributions } from '@/types'
 
 import { Gitmap } from './Gitmap'
 
-vi.mock('@dashfy/ui', async () => {
-  const actual = await vi.importActual('@dashfy/ui')
+vi.mock('@getdashfy/ui', async () => {
+  const actual = await vi.importActual('@getdashfy/ui')
   return {
     ...actual,
     useApiSubscription: vi.fn(),
@@ -33,7 +33,7 @@ vi.mock('@dashfy/ui', async () => {
   }
 })
 
-const { useApiSubscription, Gitmap: GitmapUI } = await import('@dashfy/ui')
+const { useApiSubscription, Gitmap: GitmapUI } = await import('@getdashfy/ui')
 
 describe('Gitmap', () => {
   const mockContributionsData: GithubContributions = {

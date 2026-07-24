@@ -1,5 +1,5 @@
-import type { APIRegistration, RequestOptions } from '@dashfy/types'
-import { getErrorMessage, stringifyValue } from '@dashfy/utils'
+import type { APIRegistration, RequestOptions } from '@getdashfy/types'
+import { getErrorMessage, stringifyValue } from '@getdashfy/utils'
 
 import type {
   GitHubBranchDetails,
@@ -19,7 +19,7 @@ import type {
 const DEFAULT_API_BASE_URL = 'https://api.github.com'
 const DEFAULT_API_VERSION = '2022-11-28'
 const DEFAULT_TIMEOUT = 10_000
-const DEFAULT_USER_AGENT = '@dashfy/ext-github'
+const DEFAULT_USER_AGENT = '@getdashfy/ext-github'
 const DEFAULT_ACCEPT_HEADER = 'application/vnd.github+json'
 
 export interface GitHubClientConfig {
@@ -52,8 +52,8 @@ export interface GitHubClientConfig {
  *
  * @example
  * ```ts
- * import { Dashfy } from '@dashfy/server'
- * import { createGitHubClient } from '@dashfy/ext-github'
+ * import { Dashfy } from '@getdashfy/server'
+ * import { createGitHubClient } from '@getdashfy/ext-github/client'
  *
  * const dashfy = new Dashfy()
  *
@@ -74,7 +74,7 @@ export function createGitHubClient(config: GitHubClientConfig): APIRegistration 
   return ({ logger, request }) => {
     if (!request) {
       throw new Error(
-        '@dashfy/ext-github requires the request helper. Make sure you are using @dashfy/server',
+        '@getdashfy/ext-github requires the request helper. Make sure you are using @getdashfy/server',
       )
     }
 

@@ -1,10 +1,3 @@
-/**
- * @dashfy/ext-github
- *
- * Dashfy extension for displaying GitHub data with beautiful widgets and charts.
- */
-
-export * from './client'
 export * from './components/badges/OrgBadge'
 export * from './components/badges/RepoBadge'
 export * from './components/badges/UserBadge'

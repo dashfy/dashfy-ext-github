@@ -8,8 +8,8 @@ import {
   WidgetHeader,
   WidgetLabel,
   WidgetLoader,
-} from '@dashfy/ui'
-import { format } from '@dashfy/utils'
+} from '@getdashfy/ui'
+import { format } from '@getdashfy/utils'
 
 import { GithubIcon } from '@/components/common/Icons'
 import type { GitHubUser } from '@/types'

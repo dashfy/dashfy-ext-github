@@ -7,8 +7,8 @@ import {
   WidgetErrorBoundary,
   WidgetHeader,
   WidgetLoader,
-} from '@dashfy/ui'
-import { dateFns } from '@dashfy/utils'
+} from '@getdashfy/ui'
+import { dateFns } from '@getdashfy/utils'
 import { CalendarIcon } from 'lucide-react'
 import * as React from 'react'
 

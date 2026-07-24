@@ -1,4 +1,4 @@
-import type { ChartConfig } from '@dashfy/ui'
+import type { ChartConfig } from '@getdashfy/ui'
 import {
   ChartContainer,
   ChartLegend,
@@ -11,8 +11,8 @@ import {
   WidgetErrorBoundary,
   WidgetHeader,
   WidgetLoader,
-} from '@dashfy/ui'
-import { format } from '@dashfy/utils'
+} from '@getdashfy/ui'
+import { format } from '@getdashfy/utils'
 import { EyeIcon } from 'lucide-react'
 import * as React from 'react'
 import { Area, AreaChart, Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts'

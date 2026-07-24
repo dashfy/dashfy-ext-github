@@ -7,8 +7,8 @@ import {
   WidgetHeader,
   WidgetLabel,
   WidgetLoader,
-} from '@dashfy/ui'
-import { format } from '@dashfy/utils'
+} from '@getdashfy/ui'
+import { format } from '@getdashfy/utils'
 import { CircleDotIcon, FolderGit2Icon, GitForkIcon, StarIcon } from 'lucide-react'
 
 import type { GitHubRepository } from '@/types'

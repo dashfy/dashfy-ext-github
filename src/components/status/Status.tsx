@@ -6,8 +6,8 @@ import {
   WidgetHeader,
   WidgetLoader,
   WidgetStatusBadge,
-} from '@dashfy/ui'
-import { format } from '@dashfy/utils'
+} from '@getdashfy/ui'
+import { format } from '@getdashfy/utils'
 import { ClockIcon } from 'lucide-react'
 
 import { GithubIcon } from '@/components/common/Icons'

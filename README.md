@@ -1,7 +1,7 @@
 # Dashfy GitHub Extension
 
-[![npm version](https://img.shields.io/npm/v/@dashfy/ext-github.svg?style=flat-square)](https://www.npmjs.com/package/@dashfy/ext-github)
-[![License](https://img.shields.io/github/license/dashfy/dashfy.svg?style=flat-square)](https://github.com/dashfy/dashfy/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/@getdashfy/ext-github.svg?style=flat-square)](https://www.npmjs.com/package/@getdashfy/ext-github)
+[![License](https://img.shields.io/badge/license-AGPL--3.0-blue.svg?style=flat-square)](https://github.com/dashfy/dashfy-ext-github/blob/main/LICENSE.md)
 
 > GitHub extension for [Dashfy](https://github.com/dashfy/dashfy) - Display GitHub data with beautiful widgets and charts.
 
@@ -22,11 +22,11 @@ This extension provides widgets to visualize GitHub repositories, users, organiz
 ## Installation
 
 ```bash
-npm install @dashfy/ext-github
+npm install @getdashfy/ext-github
 # or
-pnpm add @dashfy/ext-github
+pnpm add @getdashfy/ext-github
 # or
-yarn add @dashfy/ext-github
+yarn add @getdashfy/ext-github
 ```
 
 ## Quick Start
@@ -36,8 +36,8 @@ yarn add @dashfy/ext-github
 Register the GitHub API client in your Dashfy server:
 
 ```ts
-import { Dashfy } from '@dashfy/server'
-import { createGitHubClient } from '@dashfy/ext-github'
+import { Dashfy } from '@getdashfy/server'
+import { createGitHubClient } from '@getdashfy/ext-github/client'
 
 const dashfy = new Dashfy()
 
@@ -57,7 +57,7 @@ await dashfy.start()
 Register GitHub widgets in your React application:
 
 ```tsx
-import { WidgetRegistry } from '@dashfy/ui'
+import { WidgetRegistry } from '@getdashfy/ui'
 import {
   Branches,
   CommitActivityLine,
@@ -70,7 +70,7 @@ import {
   TrafficClonesHistogram,
   TrafficViewsHistogram,
   UserBadge,
-} from '@dashfy/ext-github'
+} from '@getdashfy/ext-github'
 
 // Register all GitHub widgets
 WidgetRegistry.addExtension('github', {
@@ -535,7 +535,7 @@ dashboards:
 ## TypeScript Configuration Example
 
 ```ts
-import type { DashfyConfig } from '@dashfy/types'
+import type { DashfyConfig } from '@getdashfy/types'
 
 const config: DashfyConfig = {
   dashboards: [
@@ -619,14 +619,14 @@ Contributions are welcome! Please refer to the main [Dashfy contributing guide](
 
 ## Related Packages
 
-- [`@dashfy/server`](https://www.npmjs.com/package/@dashfy/server) - Dashfy server
-- [`@dashfy/ui`](https://www.npmjs.com/package/@dashfy/ui) - Dashfy UI components
-- [`@dashfy/types`](https://www.npmjs.com/package/@dashfy/types) - Dashfy TypeScript types
-- [`@dashfy/ext-json`](https://www.npmjs.com/package/@dashfy/ext-json) - JSON/REST API extension
+- [`@getdashfy/server`](https://www.npmjs.com/package/@getdashfy/server) - Dashfy server
+- [`@getdashfy/ui`](https://www.npmjs.com/package/@getdashfy/ui) - Dashfy UI components
+- [`@getdashfy/types`](https://www.npmjs.com/package/@getdashfy/types) - Dashfy TypeScript types
+- [`@getdashfy/ext-json`](https://www.npmjs.com/package/@getdashfy/ext-json) - JSON/REST API extension
 
 ## License
 
-MIT © [Breno Polanski](https://github.com/brenopolanski)
+AGPL-3.0 © [Breno Polanski](https://github.com/brenopolanski)
 
 ---
 

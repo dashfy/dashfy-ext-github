@@ -7,7 +7,7 @@ import {
   WidgetErrorBoundary,
   WidgetHeader,
   WidgetLoader,
-} from '@dashfy/ui'
+} from '@getdashfy/ui'
 import { GitBranchIcon } from 'lucide-react'
 
 import type { BranchesResponse, GitHubBranchDetails } from '@/types'

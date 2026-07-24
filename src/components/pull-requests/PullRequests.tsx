@@ -7,7 +7,7 @@ import {
   WidgetErrorBoundary,
   WidgetHeader,
   WidgetLoader,
-} from '@dashfy/ui'
+} from '@getdashfy/ui'
 import { GitPullRequestIcon } from 'lucide-react'
 
 import type { GitHubPullRequest, PullRequestsResponse } from '@/types'

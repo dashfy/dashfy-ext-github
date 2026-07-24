@@ -36,8 +36,8 @@ describe('createGitHubClient', () => {
   it('should throw error when request helper is not provided', () => {
     const client = createGitHubClient({})
     expect(() => {
-      client({ logger: mockLogger, request: undefined as never })
-    }).toThrow('@dashfy/ext-github requires the request helper')
+      client({ logger: mockLogger, request: undefined })
+    }).toThrow('@getdashfy/ext-github requires the request helper')
   })
 
   describe('user endpoint', () => {
@@ -382,7 +382,7 @@ describe('createGitHubClient', () => {
           url: 'https://github-contributions-api.jogruber.de/v4/octocat',
           method: 'GET',
           headers: expect.objectContaining({
-            'User-Agent': '@dashfy/ext-github',
+            'User-Agent': '@getdashfy/ext-github',
           }),
         }),
       )

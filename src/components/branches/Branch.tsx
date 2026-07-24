@@ -1,4 +1,4 @@
-import { cn, ExternalLink, WidgetAvatar, WidgetListItem } from '@dashfy/ui'
+import { cn, ExternalLink, WidgetAvatar, WidgetListItem } from '@getdashfy/ui'
 import { ShieldCheckIcon } from 'lucide-react'
 
 import type { GitHubBranchDetails } from '@/types'

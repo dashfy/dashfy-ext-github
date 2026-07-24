@@ -3,15 +3,15 @@ import { describe, expect, it, vi } from 'vitest'
 
 import { Status } from './Status'
 
-vi.mock('@dashfy/ui', async () => {
-  const actual = await vi.importActual('@dashfy/ui')
+vi.mock('@getdashfy/ui', async () => {
+  const actual = await vi.importActual('@getdashfy/ui')
   return {
     ...actual,
     useApiSubscription: vi.fn(),
   }
 })
 
-vi.mock('@dashfy/utils', async (importOriginal) => {
+vi.mock('@getdashfy/utils', async (importOriginal) => {
   const actual = await importOriginal()
   return Object.assign({}, actual, {
     format: vi.fn((_v: unknown, formatStr?: string) =>
@@ -20,7 +20,7 @@ vi.mock('@dashfy/utils', async (importOriginal) => {
   })
 })
 
-const { useApiSubscription } = await import('@dashfy/ui')
+const { useApiSubscription } = await import('@getdashfy/ui')
 
 describe('Status', () => {
   it('should render loading state', () => {

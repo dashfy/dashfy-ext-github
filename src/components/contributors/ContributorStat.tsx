@@ -1,5 +1,5 @@
-import { ExternalLink, WidgetAvatar } from '@dashfy/ui'
-import { format } from '@dashfy/utils'
+import { ExternalLink, WidgetAvatar } from '@getdashfy/ui'
+import { format } from '@getdashfy/utils'
 
 import type { GitHubContributor } from '@/types'
 

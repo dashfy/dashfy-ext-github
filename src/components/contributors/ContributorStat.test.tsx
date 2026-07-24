@@ -1,4 +1,3 @@
-import type * as Utils from '@dashfy/utils'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 
@@ -6,11 +5,11 @@ import type { GitHubContributor } from '@/types'
 
 import { ContributorStat } from './ContributorStat'
 
-vi.mock('@dashfy/utils', async (importOriginal) => {
+vi.mock('@getdashfy/utils', async (importOriginal) => {
   const actual = await importOriginal()
   return Object.assign({}, actual, {
     format: vi.fn((v: number) => String(v)),
-  }) as unknown as typeof Utils
+  })
 })
 
 describe('ContributorStat', () => {

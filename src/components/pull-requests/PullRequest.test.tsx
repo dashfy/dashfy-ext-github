@@ -5,12 +5,12 @@ import type { GitHubPullRequest, GitHubUser } from '@/types'
 
 import { PullRequest } from './PullRequest'
 
-vi.mock('@dashfy/ui', async () => {
-  const actual = await vi.importActual('@dashfy/ui')
+vi.mock('@getdashfy/ui', async () => {
+  const actual = await vi.importActual('@getdashfy/ui')
   return { ...actual }
 })
 
-vi.mock('@dashfy/utils', async (importOriginal) => {
+vi.mock('@getdashfy/utils', async (importOriginal) => {
   const actual = await importOriginal()
   return Object.assign({}, actual, {
     format: vi.fn((_v: unknown, formatStr?: string) =>

@@ -1,5 +1,5 @@
-import { ExternalLink, generateReactKey, useMode, WidgetAvatar } from '@dashfy/ui'
-import { format, truncate } from '@dashfy/utils'
+import { ExternalLink, generateReactKey, useMode, WidgetAvatar } from '@getdashfy/ui'
+import { format, truncate } from '@getdashfy/utils'
 import { GitPullRequestDraftIcon, GitPullRequestIcon } from 'lucide-react'
 
 import type { GitHubPullRequest } from '@/types'
