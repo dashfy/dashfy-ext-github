@@ -97,7 +97,7 @@
     "changeset:publish": "changeset publish",
     "changeset:version": "changeset version",
     "check:all": "pnpm check:fix && pnpm check:circular",
-    "check:circular": "madge --circular --extensions ts,tsx src/",
+    "check:circular": "madge --circular --extensions ts,tsx src/ --ts-config tsconfig.json",
     "check:fix": "pnpm format && pnpm lint:fix && pnpm typecheck",
     "clean": "rm -rf dist node_modules",
     "dev": "tsup --watch",
