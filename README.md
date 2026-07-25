@@ -1,7 +1,6 @@
-# Dashfy GitHub Extension
+# `@getdashfy/ext-github`
 
-[![npm version](https://img.shields.io/npm/v/@getdashfy/ext-github.svg?style=flat-square)](https://www.npmjs.com/package/@getdashfy/ext-github)
-[![License](https://img.shields.io/badge/license-AGPL--3.0-blue.svg?style=flat-square)](https://github.com/dashfy/dashfy-ext-github/blob/main/LICENSE.md)
+![Full README Row](https://shieldcn.dev/group/npm/@getdashfy/ext-github+github/stars/dashfy/dashfy-ext-github+github/ci/dashfy/dashfy-ext-github+github/license/dashfy/dashfy-ext-github.svg?variant=branded&size=xs)
 
 > GitHub extension for [Dashfy](https://github.com/dashfy/dashfy) - Display GitHub data with beautiful widgets and charts.
 
