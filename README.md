@@ -171,7 +171,7 @@ createGitHubClient({
   baseUrl: 'https://api.github.com', // default
 
   // Personal access token for authentication
-  token: process.env.GITHUB_TOKEN,
+  token: process.env.GITHUB_TOKEN!,
 
   // Request timeout in milliseconds
   timeout: 10000, // default
@@ -189,7 +189,7 @@ GITHUB_TOKEN=ghp_your_token_here
 
 ```ts
 createGitHubClient({
-  token: process.env.GITHUB_TOKEN,
+  token: process.env.GITHUB_TOKEN!,
 })
 ```
 
@@ -200,7 +200,7 @@ To use with GitHub Enterprise, set the `baseUrl`:
 ```ts
 createGitHubClient({
   baseUrl: 'https://github.company.com/api/v3',
-  token: process.env.GITHUB_ENTERPRISE_TOKEN,
+  token: process.env.GITHUB_ENTERPRISE_TOKEN!,
 })
 ```
 
