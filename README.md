@@ -2,6 +2,10 @@
 
 ![Full README Row](https://shieldcn.dev/group/npm/@getdashfy/ext-github+github/stars/dashfy/dashfy-ext-github+github/ci/dashfy/dashfy-ext-github+github/license/dashfy/dashfy-ext-github.svg?variant=branded&size=xs)
 
+<p align="center">
+  <img alt="Full README Row" src="https://shieldcn.dev/group/npm/@getdashfy/ext-github+github/stars/dashfy/dashfy-ext-github+github/ci/dashfy/dashfy-ext-github+github/license/dashfy/dashfy-ext-github.svg?variant=branded&amp;size=xs">
+</p>
+
 > GitHub extension for [Dashfy](https://github.com/dashfy/dashfy) - Display GitHub data with beautiful widgets and charts.
 
 This extension provides widgets to visualize GitHub repositories, users, organizations, pull requests, branches, contributions, and more.
