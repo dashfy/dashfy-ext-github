@@ -20,14 +20,32 @@ This extension provides widgets to visualize GitHub repositories, users, organiz
 - **⚡ Real-time updates**: Automatic data refresh via WebSocket subscriptions
 - **🎨 Theme support**: Works with all Dashfy themes (light/dark mode)
 
-## Installation
+## Install
+
+Install with your favorite package manager:
+
+#### `npm`
 
 ```bash
 npm install @getdashfy/ext-github
-# or
+```
+
+#### `pnpm`
+
+```bash
 pnpm add @getdashfy/ext-github
-# or
+```
+
+#### `yarn`
+
+```bash
 yarn add @getdashfy/ext-github
+```
+
+#### `bun`
+
+```bash
+bun add @getdashfy/ext-github
 ```
 
 ## Quick Start
