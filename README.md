@@ -2,9 +2,7 @@
 
 ![Full README Row](https://shieldcn.dev/group/npm/@getdashfy/ext-github+github/stars/dashfy/dashfy-ext-github+github/ci/dashfy/dashfy-ext-github+github/license/dashfy/dashfy-ext-github.svg?variant=branded&size=xs)
 
-<p align="center">
-  <img alt="Full README Row" src="https://shieldcn.dev/group/npm/@getdashfy/ext-github+github/stars/dashfy/dashfy-ext-github+github/ci/dashfy/dashfy-ext-github+github/license/dashfy/dashfy-ext-github.svg?variant=branded&amp;size=xs">
-</p>
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/dashfy?referralCode=INMsTa&utm_medium=integration&utm_source=template&utm_campaign=generic)
 
 > GitHub extension for [Dashfy](https://github.com/dashfy/dashfy) - Display GitHub data with beautiful widgets and charts.
 
