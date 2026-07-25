@@ -58,16 +58,23 @@ Register the GitHub API client in your Dashfy server:
 import { Dashfy } from '@getdashfy/server'
 import { createGitHubClient } from '@getdashfy/ext-github/client'
 
+// Create a new Dashfy server instance
 const dashfy = new Dashfy()
 
-// Register GitHub API (with authentication token recommended)
+// Load dashboard configuration
+await dashfy.configureFromFile('./dashfy.config.yml')
+
+// Register GitHub API
+// Get your token at: https://github.com/settings/tokens
+// Set it with: export GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx in .env file
 dashfy.registerApi(
   'github',
   createGitHubClient({
-    token: process.env.GITHUB_TOKEN, // Optional but recommended
+    token: process.env.GITHUB_TOKEN!, // Optional but recommended
   }),
 )
 
+// Start server
 await dashfy.start()
 ```
 
@@ -91,7 +98,7 @@ import {
   UserBadge,
 } from '@getdashfy/ext-github'
 
-// Register all GitHub widgets
+// Register GitHub extension
 WidgetRegistry.addExtension('github', {
   Branches,
   CommitActivityLine,
