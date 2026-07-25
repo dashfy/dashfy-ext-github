@@ -18,16 +18,6 @@ vi.mock('@getdashfy/utils', async (importOriginal) => {
   })
 })
 
-vi.mock('recharts', async () => {
-  const actual = await vi.importActual('recharts')
-  return {
-    ...actual,
-    ResponsiveContainer: ({ children }: { children: React.ReactNode }) => (
-      <div data-testid="responsive-container">{children}</div>
-    ),
-  }
-})
-
 const { useApiSubscription } = await import('@getdashfy/ui')
 
 const TEST_REPOSITORY = 'facebook/react'
@@ -108,7 +98,8 @@ describe('TrafficViewsChart', () => {
     render(<TrafficViewsChart repository={TEST_REPOSITORY} />)
 
     expect(screen.getByText('500')).toBeTruthy()
-    expect(screen.getByText('Unique Visitors')).toBeTruthy()
+    // The chart legend renders the same label, so match the summary paragraph only
+    expect(screen.getByText('Unique Visitors', { selector: 'p' })).toBeTruthy()
   })
 
   it('should show custom title', () => {

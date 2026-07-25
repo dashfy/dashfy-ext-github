@@ -18,16 +18,6 @@ vi.mock('@getdashfy/utils', async (importOriginal) => {
   })
 })
 
-vi.mock('recharts', async () => {
-  const actual = await vi.importActual('recharts')
-  return {
-    ...actual,
-    ResponsiveContainer: ({ children }: { children: React.ReactNode }) => (
-      <div data-testid="responsive-container">{children}</div>
-    ),
-  }
-})
-
 const { useApiSubscription } = await import('@getdashfy/ui')
 
 const TEST_REPOSITORY = 'facebook/react'
@@ -53,7 +43,7 @@ describe('TrafficClonesChart', () => {
 
     render(<TrafficClonesChart repository={TEST_REPOSITORY} />)
 
-    expect(screen.getByText('Clones')).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Clones' })).toBeTruthy()
     expect(screen.getByText('Loading...')).toBeTruthy()
   })
 
@@ -80,7 +70,7 @@ describe('TrafficClonesChart', () => {
 
     render(<TrafficClonesChart repository={TEST_REPOSITORY} />)
 
-    expect(screen.getByText('Clones')).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Clones' })).toBeTruthy()
   })
 
   it('should display total clones count', () => {
@@ -108,7 +98,8 @@ describe('TrafficClonesChart', () => {
     render(<TrafficClonesChart repository={TEST_REPOSITORY} />)
 
     expect(screen.getByText('200')).toBeTruthy()
-    expect(screen.getByText('Unique Cloners')).toBeTruthy()
+    // The chart legend renders the same label, so match the summary paragraph only
+    expect(screen.getByText('Unique Cloners', { selector: 'p' })).toBeTruthy()
   })
 
   it('should show custom title', () => {
@@ -121,7 +112,7 @@ describe('TrafficClonesChart', () => {
 
     render(<TrafficClonesChart repository={TEST_REPOSITORY} title="React Clones" />)
 
-    expect(screen.getByText('React Clones')).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'React Clones' })).toBeTruthy()
   })
 
   it('should show repository as subject when no custom title', () => {
@@ -183,7 +174,7 @@ describe('TrafficClonesChart', () => {
 
     render(<TrafficClonesChart repository={TEST_REPOSITORY} />)
 
-    expect(screen.getByText('Clones')).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Clones' })).toBeTruthy()
   })
 
   it('should render bar chart when type is bar', () => {
@@ -196,7 +187,7 @@ describe('TrafficClonesChart', () => {
 
     render(<TrafficClonesChart repository={TEST_REPOSITORY} type="bar" />)
 
-    expect(screen.getByText('Clones')).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Clones' })).toBeTruthy()
   })
 
   it('should handle empty clones', () => {
@@ -209,7 +200,7 @@ describe('TrafficClonesChart', () => {
 
     render(<TrafficClonesChart repository={TEST_REPOSITORY} />)
 
-    expect(screen.getByText('Clones')).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Clones' })).toBeTruthy()
     // Both count and uniques are 0
     expect(screen.getAllByText('0')).toHaveLength(2)
   })
@@ -224,7 +215,7 @@ describe('TrafficClonesChart', () => {
 
     render(<TrafficClonesChart repository={TEST_REPOSITORY} />)
 
-    expect(screen.getByText('Clones')).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Clones' })).toBeTruthy()
   })
 })
 
@@ -239,7 +230,7 @@ describe('TrafficClonesLine', () => {
 
     render(<TrafficClonesLine repository={TEST_REPOSITORY} />)
 
-    expect(screen.getByText('Clones')).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Clones' })).toBeTruthy()
   })
 
   it('should have correct displayName', () => {
@@ -258,7 +249,7 @@ describe('TrafficClonesHistogram', () => {
 
     render(<TrafficClonesHistogram repository={TEST_REPOSITORY} />)
 
-    expect(screen.getByText('Clones')).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Clones' })).toBeTruthy()
   })
 
   it('should have correct displayName', () => {

@@ -24,16 +24,6 @@ vi.mock('@getdashfy/utils', async (importOriginal) => {
   })
 })
 
-vi.mock('recharts', async () => {
-  const actual = await vi.importActual('recharts')
-  return {
-    ...actual,
-    ResponsiveContainer: ({ children }: { children: React.ReactNode }) => (
-      <div data-testid="responsive-container">{children}</div>
-    ),
-  }
-})
-
 const { useApiSubscription } = await import('@getdashfy/ui')
 
 const TEST_REPOSITORY = 'facebook/react'
