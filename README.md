@@ -236,6 +236,8 @@ Display repository information with stats (stars, forks, issues).
 
 Display GitHub user profile information.
 
+<img src="./preview/github.UserBadge.png" alt="UserBadge widget preview" width="320" />
+
 **Parameters:**
 
 | Parameter  | Type   | Required | Default  | Description          |
