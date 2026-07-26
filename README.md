@@ -369,6 +369,8 @@ Display commit activity over the last year as a line chart.
 
 Display top contributors with commit statistics.
 
+<img src="./preview/github.ContributorsStats.png" alt="ContributorsStats widget preview" width="640" />
+
 **Parameters:**
 
 | Parameter    | Type   | Required | Default             | Description                       |
@@ -383,7 +385,7 @@ Display top contributors with commit statistics.
 ```yaml
 - extension: github
   widget: ContributorsStats
-  repository: microsoft/vscode
+  repository: vercel/next.js
   columns: 2
   rows: 1
 ```
@@ -439,6 +441,8 @@ Display repository traffic clones (requires push access).
 #### `Gitmap`
 
 Display GitHub contribution heatmap (similar to GitHub's contribution graph).
+
+<img src="./preview/github.Gitmap.png" alt="Gitmap widget preview" width="640" />
 
 **Parameters:**
 
