@@ -315,6 +315,8 @@ Display repository branches with commit authors and dates.
 
 Display repository pull requests with authors and status.
 
+<img src="./preview/github.PullRequests.png" alt="PullRequests widget preview" width="640" />
+
 **Parameters:**
 
 | Parameter    | Type                        | Required | Default         | Description                       |
