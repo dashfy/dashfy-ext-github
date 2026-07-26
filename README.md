@@ -8,6 +8,8 @@
 
 This extension provides widgets to visualize GitHub repositories, users, organizations, pull requests, branches, contributions, and more.
 
+![](./preview/dashfy-ext-github.png)
+
 ## Features
 
 - **📊 Repository stats**: Display repository information, stars, forks, issues, and activity
