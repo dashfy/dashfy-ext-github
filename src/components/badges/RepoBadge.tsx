@@ -41,35 +41,11 @@ const DEFAULT_TITLE = 'Repository'
  * Displays GitHub repository information.
  *
  * @example
- * ```json
- * {
- *   "extension": "github",
- *   "widget": "RepoBadge",
- *   "api": "github",
- *   "endpoint": "repository",
- *   "title": "React Repository",
- *   "repository": "facebook/react"
- * }
- * ```
- *
- * @example
  * ```yaml
- * extension: github
- * widget: RepoBadge
- * api: github
- * endpoint: repository
- * title: React Repository
- * repository: facebook/react
- * ```
- *
- * @example
- * ```tsx
- * <RepoBadge
- *   api="github"
- *   endpoint="repository"
- *   title="React Repository"
- *   repository="facebook/react"
- * />
+ * - extension: github
+ *   widget: RepoBadge
+ *   repository: facebook/react
+ *   title: React Repository
  * ```
  */
 export const RepoBadge = ({

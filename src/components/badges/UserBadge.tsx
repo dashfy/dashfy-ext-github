@@ -43,35 +43,11 @@ const DEFAULT_TITLE = 'GitHub User'
  * Displays GitHub user information.
  *
  * @example
- * ```json
- * {
- *   "extension": "github",
- *   "widget": "UserBadge",
- *   "api": "github",
- *   "endpoint": "user",
- *   "title": "John Doe",
- *   "user": "johndoe"
- * }
- * ```
- *
- * @example
  * ```yaml
- * extension: github
- * widget: UserBadge
- * api: github
- * endpoint: user
- * title: John Doe
- * user: johndoe
- * ```
- *
- * @example
- * ```tsx
- * <UserBadge
- *   api="github"
- *   endpoint="user"
- *   title="John Doe"
- *   user="johndoe"
- * />
+ * - extension: github
+ *   widget: UserBadge
+ *   user: johndoe
+ *   title: John Doe
  * ```
  */
 export const UserBadge = ({ api = 'github', endpoint = 'user', title, user }: UserBadgeProps) => {

@@ -69,38 +69,12 @@ const chartConfig = {
  * Displays GitHub repository visitor traffic over the last 14 days.
  *
  * @example
- * ```json
- * {
- *   "extension": "github",
- *   "widget": "TrafficViewsChart",
- *   "api": "github",
- *   "endpoint": "trafficViews",
- *   "title": "React Visitors",
- *   "repository": "facebook/react",
- *   "type": "area"
- * }
- * ```
- *
- * @example
  * ```yaml
- * extension: github
- * widget: TrafficViewsChart
- * api: github
- * endpoint: trafficViews
- * title: React Visitors
- * repository: facebook/react
- * type: area
- * ```
- *
- * @example
- * ```tsx
- * <TrafficViewsChart
- *   api="github"
- *   endpoint="trafficViews"
- *   title="React Visitors"
- *   repository="facebook/react"
- *   type="area"
- * />
+ * - extension: github
+ *   widget: TrafficViewsChart
+ *   repository: facebook/react
+ *   title: React Visitors
+ *   type: area
  * ```
  */
 export const TrafficViewsChart = ({

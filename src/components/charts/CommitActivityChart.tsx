@@ -62,38 +62,12 @@ const chartConfig = {
  * Displays GitHub repository commit activity over the last 52 weeks.
  *
  * @example
- * ```json
- * {
- *   "extension": "github",
- *   "widget": "CommitActivityChart",
- *   "api": "github",
- *   "endpoint": "commitActivity",
- *   "title": "React Commit Activity",
- *   "repository": "facebook/react",
- *   "type": "area"
- * }
- * ```
- *
- * @example
  * ```yaml
- * extension: github
- * widget: CommitActivityChart
- * api: github
- * endpoint: commitActivity
- * title: React Commit Activity
- * repository: facebook/react
- * type: area
- * ```
- *
- * @example
- * ```tsx
- * <CommitActivityChart
- *   api="github"
- *   endpoint="commitActivity"
- *   title="React Commit Activity"
- *   repository="facebook/react"
- *   type="area"
- * />
+ * - extension: github
+ *   widget: CommitActivityChart
+ *   repository: facebook/react
+ *   title: React Commit Activity
+ *   type: area
  * ```
  */
 export const CommitActivityChart = ({

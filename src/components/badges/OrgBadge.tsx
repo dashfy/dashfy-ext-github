@@ -43,35 +43,11 @@ const DEFAULT_TITLE = 'Organization'
  * Displays GitHub organization information.
  *
  * @example
- * ```json
- * {
- *   "extension": "github",
- *   "widget": "OrgBadge",
- *   "api": "github",
- *   "endpoint": "organization",
- *   "title": "Vercel",
- *   "organization": "vercel"
- * }
- * ```
- *
- * @example
  * ```yaml
- * extension: github
- * widget: OrgBadge
- * api: github
- * endpoint: organization
- * title: Vercel
- * organization: vercel
- * ```
- *
- * @example
- * ```tsx
- * <OrgBadge
- *   api="github"
- *   endpoint="organization"
- *   title="Vercel"
- *   organization="vercel"
- * />
+ * - extension: github
+ *   widget: OrgBadge
+ *   organization: vercel
+ *   title: Vercel
  * ```
  */
 export const OrgBadge = ({

@@ -47,38 +47,12 @@ const DEFAULT_TITLE = 'Branches'
  * Displays a list of GitHub repository branches sorted by most recent activity.
  *
  * @example
- * ```json
- * {
- *   "extension": "github",
- *   "widget": "Branches",
- *   "api": "github",
- *   "endpoint": "branches",
- *   "title": "React Branches",
- *   "repository": "facebook/react",
- *   "perPage": 30
- * }
- * ```
- *
- * @example
  * ```yaml
- * extension: github
- * widget: Branches
- * api: github
- * endpoint: branches
- * title: React Branches
- * repository: facebook/react
- * perPage: 30
- * ```
- *
- * @example
- * ```tsx
- * <Branches
- *   api="github"
- *   endpoint="branches"
- *   title="React Branches"
- *   repository="facebook/react"
- *   perPage={30}
- * />
+ * - extension: github
+ *   widget: Branches
+ *   repository: facebook/react
+ *   title: React Branches
+ *   perPage: 30
  * ```
  */
 export const Branches = ({

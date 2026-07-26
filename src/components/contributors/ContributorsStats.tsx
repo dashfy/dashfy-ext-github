@@ -42,35 +42,11 @@ const DEFAULT_TITLE = 'Contributors'
  * Displays GitHub repository contributors with their commit statistics.
  *
  * @example
- * ```json
- * {
- *   "extension": "github",
- *   "widget": "ContributorsStats",
- *   "api": "github",
- *   "endpoint": "contributorsStats",
- *   "title": "React Contributors",
- *   "repository": "facebook/react"
- * }
- * ```
- *
- * @example
  * ```yaml
- * extension: github
- * widget: ContributorsStats
- * api: github
- * endpoint: contributorsStats
- * title: React Contributors
- * repository: facebook/react
- * ```
- *
- * @example
- * ```tsx
- * <ContributorsStats
- *   api="github"
- *   endpoint="contributorsStats"
- *   title="React Contributors"
- *   repository="facebook/react"
- * />
+ * - extension: github
+ *   widget: ContributorsStats
+ *   repository: facebook/react
+ *   title: React Contributors
  * ```
  */
 export const ContributorsStats = ({

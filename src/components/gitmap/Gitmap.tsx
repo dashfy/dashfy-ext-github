@@ -50,35 +50,11 @@ const DEFAULT_COLORS = {
  * Displays GitHub user contributions as a heatmap (similar to GitHub's contribution graph).
  *
  * @example
- * ```json
- * {
- *   "extension": "github",
- *   "widget": "Gitmap",
- *   "api": "github",
- *   "endpoint": "contributions",
- *   "title": "My Contributions",
- *   "user": "johndoe"
- * }
- * ```
- *
- * @example
  * ```yaml
- * extension: github
- * widget: Gitmap
- * api: github
- * endpoint: contributions
- * title: My Contributions
- * user: johndoe
- * ```
- *
- * @example
- * ```tsx
- * <Gitmap
- *   api="github"
- *   endpoint="contributions"
- *   title="My Contributions"
- *   user="johndoe"
- * />
+ * - extension: github
+ *   widget: Gitmap
+ *   user: johndoe
+ *   title: My Contributions
  * ```
  */
 export const Gitmap = ({

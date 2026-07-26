@@ -69,38 +69,12 @@ const chartConfig = {
  * Displays GitHub repository clone statistics over the last 14 days.
  *
  * @example
- * ```json
- * {
- *   "extension": "github",
- *   "widget": "TrafficClonesChart",
- *   "api": "github",
- *   "endpoint": "trafficClones",
- *   "title": "React Clones",
- *   "repository": "facebook/react",
- *   "type": "area"
- * }
- * ```
- *
- * @example
  * ```yaml
- * extension: github
- * widget: TrafficClonesChart
- * api: github
- * endpoint: trafficClones
- * title: React Clones
- * repository: facebook/react
- * type: area
- * ```
- *
- * @example
- * ```tsx
- * <TrafficClonesChart
- *   api="github"
- *   endpoint="trafficClones"
- *   title="React Clones"
- *   repository="facebook/react"
- *   type="area"
- * />
+ * - extension: github
+ *   widget: TrafficClonesChart
+ *   repository: facebook/react
+ *   title: React Clones
+ *   type: area
  * ```
  */
 export const TrafficClonesChart = ({

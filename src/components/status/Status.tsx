@@ -39,32 +39,10 @@ const DEFAULT_SUBJECT = 'Status'
  * Displays the current GitHub platform status with a colored badge (success, warning, error).
  *
  * @example
- * ```json
- * {
- *   "extension": "github",
- *   "widget": "Status",
- *   "api": "github",
- *   "endpoint": "status",
- *   "title": "GitHub Status"
- * }
- * ```
- *
- * @example
  * ```yaml
- * extension: github
- * widget: Status
- * api: github
- * endpoint: status
- * title: GitHub Status
- * ```
- *
- * @example
- * ```tsx
- * <Status
- *   api="github"
- *   endpoint="status"
- *   title="GitHub Status"
- * />
+ * - extension: github
+ *   widget: Status
+ *   title: GitHub Status
  * ```
  */
 export const Status = ({ api = 'github', endpoint = 'status', title }: StatusProps) => {

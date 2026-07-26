@@ -47,38 +47,12 @@ const DEFAULT_TITLE = 'Pull Requests'
  * Displays a list of GitHub repository pull requests filtered by state (open, closed, or all).
  *
  * @example
- * ```json
- * {
- *   "extension": "github",
- *   "widget": "PullRequests",
- *   "api": "github",
- *   "endpoint": "pullRequests",
- *   "title": "React PRs",
- *   "repository": "facebook/react",
- *   "state": "open"
- * }
- * ```
- *
- * @example
  * ```yaml
- * extension: github
- * widget: PullRequests
- * api: github
- * endpoint: pullRequests
- * title: React PRs
- * repository: facebook/react
- * state: open
- * ```
- *
- * @example
- * ```tsx
- * <PullRequests
- *   api="github"
- *   endpoint="pullRequests"
- *   title="React PRs"
- *   repository="facebook/react"
- *   state="open"
- * />
+ * - extension: github
+ *   widget: PullRequests
+ *   repository: facebook/react
+ *   title: React PRs
+ *   state: open
  * ```
  */
 export const PullRequests = ({
