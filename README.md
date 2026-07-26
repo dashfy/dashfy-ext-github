@@ -22,7 +22,7 @@ This extension provides widgets to visualize GitHub repositories, users, organiz
 - **⚡ Real-time updates**: Automatic data refresh via WebSocket subscriptions
 - **🎨 Theme support**: Works with all Dashfy themes (light/dark mode)
 
-## Install
+## Installation
 
 Install with your favorite package manager:
 
@@ -50,9 +50,9 @@ yarn add @getdashfy/ext-github
 bun add @getdashfy/ext-github
 ```
 
-## Quick Start
+## Quick start
 
-### 1. Server Setup
+### 1. Server setup
 
 Register the GitHub API client in your Dashfy server (`dashfy.server.ts`):
 
@@ -80,7 +80,7 @@ dashfy.registerApi(
 await dashfy.start()
 ```
 
-### 2. Client Setup
+### 2. Client setup
 
 Register GitHub widgets in your React application (`App.tsx`):
 
@@ -116,7 +116,7 @@ WidgetRegistry.addExtension('github', {
 })
 ```
 
-### 3. Dashboard Configuration
+### 3. Dashboard configuration
 
 Add GitHub widgets to your dashboard configuration (`dashfy.config.yml`):
 
@@ -144,7 +144,7 @@ dashboards:
         rows: 1
 ```
 
-## GitHub API Configuration
+## GitHub API configuration
 
 ### Authentication
 
@@ -154,7 +154,7 @@ While authentication is optional, it's **highly recommended** to provide a GitHu
 - Increase API rate limits (5,000 requests/hour vs 60 requests/hour)
 - Access traffic data (requires push access)
 
-#### Creating a Personal Access Token
+#### Creating a personal access token
 
 1. Go to [GitHub Settings → Tokens](https://github.com/settings/tokens)
 2. Click "Generate new token (classic)"
@@ -164,7 +164,7 @@ While authentication is optional, it's **highly recommended** to provide a GitHu
    - `read:org` - Read organization data
 4. Copy the generated token
 
-#### Configuration Options
+#### Configuration options
 
 ```ts
 createGitHubClient({
@@ -179,7 +179,7 @@ createGitHubClient({
 })
 ```
 
-#### Environment Variables
+#### Environment variables
 
 You can use environment variables for configuration:
 
@@ -193,7 +193,7 @@ createGitHubClient({
 })
 ```
 
-### GitHub Enterprise
+### GitHub enterprise
 
 To use with GitHub Enterprise, set the `baseUrl`:
 
@@ -204,7 +204,7 @@ createGitHubClient({
 })
 ```
 
-## Available Widgets
+## Available widgets
 
 ### Badges
 
@@ -284,7 +284,7 @@ Display GitHub organization information.
   rows: 1
 ```
 
-### Repository Data
+### Repository data
 
 #### `Branches`
 
@@ -436,7 +436,7 @@ Display repository traffic clones (requires push access).
   rows: 1
 ```
 
-### User Data
+### User data
 
 #### `Gitmap`
 
@@ -463,11 +463,13 @@ Display GitHub contribution heatmap (similar to GitHub's contribution graph).
   rows: 1
 ```
 
-### System Status
+### System status
 
 #### `Status`
 
 Display GitHub's current system status.
+
+<img src="./preview/github.Status.png" alt="Status widget preview" width="640" />
 
 **Parameters:**
 
@@ -486,143 +488,7 @@ Display GitHub's current system status.
   rows: 1
 ```
 
-## Complete Example
-
-Here's a complete dashboard configuration showcasing all GitHub widgets:
-
-```yaml
-# dashfy.config.yml
-dashboards:
-  - title: GitHub Dashboard
-    columns: 4
-    rows: 4
-    widgets:
-      # Badges
-      - extension: github
-        widget: RepoBadge
-        repository: react/react
-        x: 0
-        y: 0
-        columns: 1
-        rows: 1
-
-      - extension: github
-        widget: UserBadge
-        user: torvalds
-        x: 1
-        y: 0
-        columns: 1
-        rows: 1
-
-      - extension: github
-        widget: OrgBadge
-        organization: vercel
-        x: 2
-        y: 0
-        columns: 1
-        rows: 1
-
-      - extension: github
-        widget: Status
-        x: 3
-        y: 0
-        columns: 1
-        rows: 1
-
-      # Repository Data
-      - extension: github
-        widget: PullRequests
-        repository: vercel/next.js
-        state: open
-        x: 0
-        y: 1
-        columns: 2
-        rows: 1
-
-      - extension: github
-        widget: Branches
-        repository: nodejs/node
-        x: 2
-        y: 1
-        columns: 2
-        rows: 1
-
-      # Charts
-      - extension: github
-        widget: CommitActivityLine
-        repository: microsoft/vscode
-        x: 0
-        y: 2
-        columns: 2
-        rows: 1
-
-      - extension: github
-        widget: ContributorsStats
-        repository: react/react
-        x: 2
-        y: 2
-        columns: 2
-        rows: 1
-
-      # Contribution Heatmap
-      - extension: github
-        widget: Gitmap
-        user: torvalds
-        x: 0
-        y: 3
-        columns: 4
-        rows: 1
-```
-
-## TypeScript Configuration Example
-
-```ts
-import type { DashfyConfig } from '@getdashfy/types'
-
-const config: DashfyConfig = {
-  dashboards: [
-    {
-      title: 'GitHub Dashboard',
-      columns: 3,
-      rows: 2,
-      widgets: [
-        {
-          extension: 'github',
-          widget: 'RepoBadge',
-          repository: 'react/react',
-          x: 0,
-          y: 0,
-          columns: 1,
-          rows: 1,
-        },
-        {
-          extension: 'github',
-          widget: 'PullRequests',
-          repository: 'vercel/next.js',
-          state: 'open',
-          x: 1,
-          y: 0,
-          columns: 2,
-          rows: 1,
-        },
-        {
-          extension: 'github',
-          widget: 'Gitmap',
-          user: 'torvalds',
-          x: 0,
-          y: 1,
-          columns: 3,
-          rows: 1,
-        },
-      ],
-    },
-  ],
-}
-
-export default config
-```
-
-## API Rate Limits
+## API rate limits
 
 GitHub API has rate limits that vary based on authentication:
 
@@ -657,19 +523,26 @@ GitHub API has rate limits that vary based on authentication:
 
 ## Contributing
 
-Contributions are welcome! Please refer to the main [Dashfy contributing guide](https://github.com/dashfy/dashfy/blob/main/CONTRIBUTING.md).
+Contributions are welcome. For issues and pull requests related to the extension, use the [dashfy/dashfy-ext-github](https://github.com/dashfy/dashfy-ext-github) repository. Framework contributions belong in [dashfy/dashfy](https://github.com/dashfy/dashfy).
 
-## Related Packages
+## Community
 
-- [`@getdashfy/server`](https://www.npmjs.com/package/@getdashfy/server) - Dashfy server
-- [`@getdashfy/ui`](https://www.npmjs.com/package/@getdashfy/ui) - Dashfy UI components
-- [`@getdashfy/types`](https://www.npmjs.com/package/@getdashfy/types) - Dashfy TypeScript types
-- [`@getdashfy/ext-json`](https://www.npmjs.com/package/@getdashfy/ext-json) - JSON/REST API extension
+Join the community on [Dashfy's Discord server](https://dashfy.dev/discord) to discuss the project, ask questions, or get help.
+
+Join the conversation on X (Twitter) and follow [@dashfydev](https://x.com/dashfydev) for updates and announcements.
 
 ## License
 
-AGPL-3.0 © [Breno Polanski](https://github.com/brenopolanski)
+This project is licensed under the AGPL-3.0 License - see the [LICENSE](./LICENSE) file for details.
 
 ---
 
-Part of the [Dashfy](https://github.com/dashfy/dashfy) project.
+<p align="center">
+  <picture>
+    <source srcset="./public/brand/dashfy-wordmark-black.png" media="(prefers-color-scheme: light)">
+    <source srcset="./public/brand/dashfy-wordmark-white.png" media="(prefers-color-scheme: dark)">
+    <img src="./public/brand/dashfy-wordmark-black.png" alt="Header banner">
+  </picture>
+</p>
+
+**For AI/LLM agents:** [https://dashfy.dev/llms.txt](https://dashfy.dev/llms.txt)
