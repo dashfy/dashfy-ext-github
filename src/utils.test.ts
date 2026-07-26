@@ -4,7 +4,7 @@ import { getDisplayStatus, getGistUrl, getGithubUrl } from './utils'
 
 describe('getGithubUrl', () => {
   it('should return GitHub URL with path', () => {
-    expect(getGithubUrl('/facebook/react')).toBe('https://github.com/facebook/react')
+    expect(getGithubUrl('/react/react')).toBe('https://github.com/react/react')
   })
 
   it('should handle empty path', () => {

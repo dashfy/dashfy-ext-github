@@ -13,7 +13,7 @@ vi.mock('@getdashfy/ui', async () => {
 
 const { useApiSubscription } = await import('@getdashfy/ui')
 
-const TEST_REPOSITORY = 'facebook/react'
+const TEST_REPOSITORY = 'react/react'
 
 describe('Branches', () => {
   it('should render loading state', () => {

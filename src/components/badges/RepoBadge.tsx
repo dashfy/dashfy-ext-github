@@ -44,7 +44,7 @@ const DEFAULT_TITLE = 'Repository'
  * ```yaml
  * - extension: github
  *   widget: RepoBadge
- *   repository: facebook/react
+ *   repository: react/react
  *   title: React Repository
  * ```
  */

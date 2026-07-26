@@ -50,7 +50,7 @@ const DEFAULT_TITLE = 'Branches'
  * ```yaml
  * - extension: github
  *   widget: Branches
- *   repository: facebook/react
+ *   repository: react/react
  *   title: React Branches
  *   perPage: 30
  * ```

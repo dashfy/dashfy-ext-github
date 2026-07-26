@@ -25,8 +25,8 @@ const { useApiSubscription } = await import('@getdashfy/ui')
 describe('RepoBadge', () => {
   const mockRepoData = {
     name: 'react',
-    full_name: 'facebook/react',
-    html_url: 'https://github.com/facebook/react',
+    full_name: 'react/react',
+    html_url: 'https://github.com/react/react',
     description:
       'A declarative, efficient, and flexible JavaScript library for building user interfaces.',
     stargazers_count: 220000,
@@ -47,10 +47,10 @@ describe('RepoBadge', () => {
       lastUpdate: undefined,
     })
 
-    render(<RepoBadge repository="facebook/react" />)
+    render(<RepoBadge repository="react/react" />)
 
     expect(screen.getByText('Repository')).toBeTruthy()
-    expect(screen.getByText('facebook/react')).toBeTruthy()
+    expect(screen.getByText('react/react')).toBeTruthy()
     expect(screen.getByText('Loading...')).toBeTruthy()
   })
 
@@ -62,7 +62,7 @@ describe('RepoBadge', () => {
       lastUpdate: Date.now(),
     })
 
-    render(<RepoBadge repository="facebook/react" />)
+    render(<RepoBadge repository="react/react" />)
 
     expect(screen.getByText('Repository not found')).toBeTruthy()
   })
@@ -75,7 +75,7 @@ describe('RepoBadge', () => {
       lastUpdate: Date.now(),
     })
 
-    render(<RepoBadge repository="facebook/react" />)
+    render(<RepoBadge repository="react/react" />)
 
     expect(screen.getByText('react')).toBeTruthy()
     expect(
@@ -93,7 +93,7 @@ describe('RepoBadge', () => {
       lastUpdate: Date.now(),
     })
 
-    render(<RepoBadge repository="facebook/react" />)
+    render(<RepoBadge repository="react/react" />)
 
     expect(screen.getByText('issues')).toBeTruthy()
     expect(screen.getByText('forks')).toBeTruthy()
@@ -111,7 +111,7 @@ describe('RepoBadge', () => {
       lastUpdate: Date.now(),
     })
 
-    render(<RepoBadge repository="facebook/react" />)
+    render(<RepoBadge repository="react/react" />)
 
     expect(screen.getByText('language')).toBeTruthy()
     expect(screen.getByText('JavaScript')).toBeTruthy()
@@ -131,7 +131,7 @@ describe('RepoBadge', () => {
       lastUpdate: Date.now(),
     })
 
-    render(<RepoBadge repository="facebook/react" title="React Repository" />)
+    render(<RepoBadge repository="react/react" title="React Repository" />)
 
     expect(screen.getByText('React Repository')).toBeTruthy()
   })
@@ -144,10 +144,10 @@ describe('RepoBadge', () => {
       lastUpdate: Date.now(),
     })
 
-    render(<RepoBadge repository="facebook/react" />)
+    render(<RepoBadge repository="react/react" />)
 
     expect(screen.getByText('Repository')).toBeTruthy()
-    expect(screen.getByText('facebook/react')).toBeTruthy()
+    expect(screen.getByText('react/react')).toBeTruthy()
   })
 
   it('should use custom API and endpoint', () => {
@@ -158,12 +158,12 @@ describe('RepoBadge', () => {
       lastUpdate: Date.now(),
     })
 
-    render(<RepoBadge api="customApi" endpoint="customEndpoint" repository="facebook/react" />)
+    render(<RepoBadge api="customApi" endpoint="customEndpoint" repository="react/react" />)
 
     expect(useApiSubscription).toHaveBeenCalledWith({
       api: 'customApi',
       endpoint: 'customEndpoint',
-      params: { repository: 'facebook/react' },
+      params: { repository: 'react/react' },
     })
   })
 
@@ -175,12 +175,12 @@ describe('RepoBadge', () => {
       lastUpdate: Date.now(),
     })
 
-    render(<RepoBadge repository="facebook/react" />)
+    render(<RepoBadge repository="react/react" />)
 
     expect(useApiSubscription).toHaveBeenCalledWith({
       api: 'github',
       endpoint: 'repository',
-      params: { repository: 'facebook/react' },
+      params: { repository: 'react/react' },
     })
   })
 
@@ -193,7 +193,7 @@ describe('RepoBadge', () => {
       lastUpdate: Date.now(),
     })
 
-    render(<RepoBadge repository="facebook/react" />)
+    render(<RepoBadge repository="react/react" />)
 
     expect(
       screen.queryByText(
@@ -211,7 +211,7 @@ describe('RepoBadge', () => {
       lastUpdate: Date.now(),
     })
 
-    render(<RepoBadge repository="facebook/react" />)
+    render(<RepoBadge repository="react/react" />)
 
     expect(screen.getByText('N/A')).toBeTruthy()
   })

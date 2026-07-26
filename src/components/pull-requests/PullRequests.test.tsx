@@ -13,7 +13,7 @@ vi.mock('@getdashfy/ui', async () => {
 
 const { useApiSubscription } = await import('@getdashfy/ui')
 
-const TEST_REPOSITORY = 'facebook/react'
+const TEST_REPOSITORY = 'react/react'
 
 describe('PullRequests', () => {
   it('should render loading state', () => {
@@ -59,7 +59,7 @@ describe('PullRequests', () => {
               html_url: 'https://github.com/octocat',
             },
             created_at: '2024-01-15T10:00:00Z',
-            html_url: 'https://github.com/facebook/react/pull/1',
+            html_url: 'https://github.com/react/react/pull/1',
             head: { ref: 'fix-bug' },
             base: { ref: 'main' },
             labels: [],
@@ -76,7 +76,7 @@ describe('PullRequests', () => {
               html_url: 'https://github.com/user2',
             },
             created_at: '2024-01-14T10:00:00Z',
-            html_url: 'https://github.com/facebook/react/pull/2',
+            html_url: 'https://github.com/react/react/pull/2',
             head: { ref: 'feature' },
             base: { ref: 'main' },
             labels: [],
@@ -123,7 +123,7 @@ describe('PullRequests', () => {
               html_url: 'https://github.com/user1',
             },
             created_at: '2024-01-15T10:00:00Z',
-            html_url: 'https://github.com/facebook/react/pull/1',
+            html_url: 'https://github.com/react/react/pull/1',
             head: { ref: 'branch1' },
             base: { ref: 'main' },
             labels: [],
@@ -140,7 +140,7 @@ describe('PullRequests', () => {
               html_url: 'https://github.com/user2',
             },
             created_at: '2024-01-14T10:00:00Z',
-            html_url: 'https://github.com/facebook/react/pull/2',
+            html_url: 'https://github.com/react/react/pull/2',
             head: { ref: 'branch2' },
             base: { ref: 'main' },
             labels: [],
@@ -246,7 +246,7 @@ describe('PullRequests', () => {
               html_url: 'https://github.com/octocat',
             },
             created_at: '2024-01-15T10:00:00Z',
-            html_url: 'https://github.com/facebook/react/pull/12345',
+            html_url: 'https://github.com/react/react/pull/12345',
             head: { ref: 'test-branch' },
             base: { ref: 'main' },
             labels: [],

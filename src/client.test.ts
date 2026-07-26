@@ -107,7 +107,7 @@ describe('createGitHubClient', () => {
   describe('repository endpoint', () => {
     it('should fetch repository data', async () => {
       const mockRepo = {
-        full_name: 'facebook/react',
+        full_name: 'react/react',
         description: 'A declarative, efficient, and flexible JavaScript library',
         stargazers_count: 200000,
         forks_count: 40000,
@@ -116,11 +116,11 @@ describe('createGitHubClient', () => {
       const client = createGitHubClient({})
       const api = client({ logger: mockLogger, request: mockRequest })
 
-      const result = await api.repository!({ repository: 'facebook/react' })
+      const result = await api.repository!({ repository: 'react/react' })
 
       expect(mockRequest).toHaveBeenCalledWith(
         expect.objectContaining({
-          url: 'https://api.github.com/repos/facebook/react',
+          url: 'https://api.github.com/repos/react/react',
         }),
       )
       expect(result).toEqual(mockRepo)
@@ -149,7 +149,7 @@ describe('createGitHubClient', () => {
       const client = createGitHubClient({})
       const api = client({ logger: mockLogger, request: mockRequest })
 
-      const result = (await api.branches!({ repository: 'facebook/react', perPage: 30 })) as {
+      const result = (await api.branches!({ repository: 'react/react', perPage: 30 })) as {
         branches: GitHubBranchDetails[]
       }
 
@@ -168,7 +168,7 @@ describe('createGitHubClient', () => {
       const client = createGitHubClient({})
       const api = client({ logger: mockLogger, request: mockRequest })
 
-      const result = (await api.branches!({ repository: 'facebook/react' })) as {
+      const result = (await api.branches!({ repository: 'react/react' })) as {
         branches: GitHubBranchDetails[]
       }
 
@@ -188,13 +188,13 @@ describe('createGitHubClient', () => {
       const client = createGitHubClient({})
       const api = client({ logger: mockLogger, request: mockRequest })
 
-      const result = (await api.pullRequests!({ repository: 'facebook/react' })) as {
+      const result = (await api.pullRequests!({ repository: 'react/react' })) as {
         pullRequests: GitHubPullRequest[]
       }
 
       expect(mockRequest).toHaveBeenCalledWith(
         expect.objectContaining({
-          url: expect.stringContaining('/repos/facebook/react/pulls'),
+          url: expect.stringContaining('/repos/react/react/pulls'),
         }),
       )
       expect(result.pullRequests).toEqual(mockPRs)
@@ -205,7 +205,7 @@ describe('createGitHubClient', () => {
       const client = createGitHubClient({})
       const api = client({ logger: mockLogger, request: mockRequest })
 
-      await api.pullRequests!({ repository: 'facebook/react', state: 'closed' })
+      await api.pullRequests!({ repository: 'react/react', state: 'closed' })
 
       expect(mockRequest).toHaveBeenCalledWith(
         expect.objectContaining({
@@ -225,7 +225,7 @@ describe('createGitHubClient', () => {
       const client = createGitHubClient({})
       const api = client({ logger: mockLogger, request: mockRequest })
 
-      const result = (await api.contributorsStats!({ repository: 'facebook/react' })) as {
+      const result = (await api.contributorsStats!({ repository: 'react/react' })) as {
         contributors: GitHubContributor[]
       }
 
@@ -237,7 +237,7 @@ describe('createGitHubClient', () => {
       const client = createGitHubClient({})
       const api = client({ logger: mockLogger, request: mockRequest })
 
-      const result = (await api.contributorsStats!({ repository: 'facebook/react' })) as {
+      const result = (await api.contributorsStats!({ repository: 'react/react' })) as {
         contributors: GitHubContributor[]
       }
 
@@ -255,7 +255,7 @@ describe('createGitHubClient', () => {
       const client = createGitHubClient({})
       const api = client({ logger: mockLogger, request: mockRequest })
 
-      const result = (await api.commitActivity!({ repository: 'facebook/react' })) as {
+      const result = (await api.commitActivity!({ repository: 'react/react' })) as {
         buckets: GitHubCommitActivity[]
       }
 
@@ -274,7 +274,7 @@ describe('createGitHubClient', () => {
       const client = createGitHubClient({})
       const api = client({ logger: mockLogger, request: mockRequest })
 
-      const result = await api.trafficViews!({ repository: 'facebook/react' })
+      const result = await api.trafficViews!({ repository: 'react/react' })
 
       expect(result).toEqual(mockViews)
     })
@@ -291,7 +291,7 @@ describe('createGitHubClient', () => {
       const client = createGitHubClient({})
       const api = client({ logger: mockLogger, request: mockRequest })
 
-      const result = await api.trafficClones!({ repository: 'facebook/react' })
+      const result = await api.trafficClones!({ repository: 'react/react' })
 
       expect(result).toEqual(mockClones)
     })
@@ -355,7 +355,7 @@ describe('createGitHubClient', () => {
       const client = createGitHubClient({})
       const api = client({ logger: mockLogger, request: mockRequest })
 
-      const result = await api.issues!({ repository: 'facebook/react' })
+      const result = await api.issues!({ repository: 'react/react' })
 
       expect(result).toEqual(mockIssues)
     })

@@ -25,7 +25,7 @@ describe('PullRequest', () => {
     number: 12345,
     title: 'Fix critical bug in authentication',
     state: 'open',
-    html_url: 'https://github.com/facebook/react/pull/12345',
+    html_url: 'https://github.com/react/react/pull/12345',
     created_at: '2024-01-15T10:00:00Z',
     updated_at: '2024-01-16T10:00:00Z',
     merged_at: null,

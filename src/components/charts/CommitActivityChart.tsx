@@ -65,7 +65,7 @@ const chartConfig = {
  * ```yaml
  * - extension: github
  *   widget: CommitActivityChart
- *   repository: facebook/react
+ *   repository: react/react
  *   title: React Commit Activity
  *   type: area
  * ```

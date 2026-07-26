@@ -26,7 +26,7 @@ vi.mock('@getdashfy/utils', async (importOriginal) => {
 
 const { useApiSubscription } = await import('@getdashfy/ui')
 
-const TEST_REPOSITORY = 'facebook/react'
+const TEST_REPOSITORY = 'react/react'
 
 describe('CommitActivityChart', () => {
   const mockCommitActivity = {

@@ -72,7 +72,7 @@ const chartConfig = {
  * ```yaml
  * - extension: github
  *   widget: TrafficClonesChart
- *   repository: facebook/react
+ *   repository: react/react
  *   title: React Clones
  *   type: area
  * ```

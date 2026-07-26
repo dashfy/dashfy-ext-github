@@ -126,7 +126,7 @@ dashboards:
     widgets:
       - extension: github
         widget: RepoBadge
-        repository: facebook/react
+        repository: react/react
         x: 0
         y: 0
         columns: 1
@@ -224,7 +224,7 @@ Display repository information with stats (stars, forks, issues).
 ```yaml
 - extension: github
   widget: RepoBadge
-  repository: facebook/react
+  repository: react/react
   title: React Repository
   columns: 1
   rows: 1
@@ -320,7 +320,7 @@ Display repository pull requests with authors and status.
 ```yaml
 - extension: github
   widget: PullRequests
-  repository: facebook/react
+  repository: react/react
   state: open
   columns: 2
   rows: 1
@@ -482,7 +482,7 @@ dashboards:
       # Badges
       - extension: github
         widget: RepoBadge
-        repository: facebook/react
+        repository: react/react
         x: 0
         y: 0
         columns: 1
@@ -540,7 +540,7 @@ dashboards:
 
       - extension: github
         widget: ContributorsStats
-        repository: facebook/react
+        repository: react/react
         x: 2
         y: 2
         columns: 2
@@ -571,7 +571,7 @@ const config: DashfyConfig = {
         {
           extension: 'github',
           widget: 'RepoBadge',
-          repository: 'facebook/react',
+          repository: 'react/react',
           x: 0,
           y: 0,
           columns: 1,

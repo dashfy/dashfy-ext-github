@@ -50,7 +50,7 @@ const DEFAULT_TITLE = 'Pull Requests'
  * ```yaml
  * - extension: github
  *   widget: PullRequests
- *   repository: facebook/react
+ *   repository: react/react
  *   title: React PRs
  *   state: open
  * ```

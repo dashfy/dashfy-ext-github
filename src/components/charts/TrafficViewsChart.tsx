@@ -72,7 +72,7 @@ const chartConfig = {
  * ```yaml
  * - extension: github
  *   widget: TrafficViewsChart
- *   repository: facebook/react
+ *   repository: react/react
  *   title: React Visitors
  *   type: area
  * ```

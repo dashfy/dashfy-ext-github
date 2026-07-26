@@ -11,7 +11,7 @@ describe('Branch', () => {
     protected: false,
     commit: {
       sha: 'abc123',
-      url: 'https://api.github.com/repos/facebook/react/commits/abc123',
+      url: 'https://api.github.com/repos/react/react/commits/abc123',
     },
     commitAuthor: {
       login: 'octocat',
@@ -21,7 +21,7 @@ describe('Branch', () => {
     commitDate: '2024-01-15T10:00:00Z',
   }
 
-  const TEST_REPOSITORY = 'facebook/react'
+  const TEST_REPOSITORY = 'react/react'
 
   it('should render branch name', () => {
     render(<Branch branch={mockBranch} repository={TEST_REPOSITORY} />)
@@ -33,7 +33,7 @@ describe('Branch', () => {
     render(<Branch branch={mockBranch} repository={TEST_REPOSITORY} />)
 
     const link = screen.getByText('main').closest('a')
-    expect(link?.getAttribute('href')).toBe('https://github.com/facebook/react/tree/main')
+    expect(link?.getAttribute('href')).toBe('https://github.com/react/react/tree/main')
   })
 
   it('should render commit author name', () => {
@@ -84,7 +84,7 @@ describe('Branch', () => {
 
     const link = screen.getByText('feature/my-feature').closest('a')
     expect(link?.getAttribute('href')).toBe(
-      'https://github.com/facebook/react/tree/feature%2Fmy-feature',
+      'https://github.com/react/react/tree/feature%2Fmy-feature',
     )
   })
 

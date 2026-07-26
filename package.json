@@ -56,7 +56,7 @@
     "starter": [
       {
         "widget": "RepoBadge",
-        "repository": "facebook/react"
+        "repository": "react/react"
       },
       {
         "widget": "Status"

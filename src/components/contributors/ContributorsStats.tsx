@@ -45,7 +45,7 @@ const DEFAULT_TITLE = 'Contributors'
  * ```yaml
  * - extension: github
  *   widget: ContributorsStats
- *   repository: facebook/react
+ *   repository: react/react
  *   title: React Contributors
  * ```
  */
