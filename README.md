@@ -344,6 +344,8 @@ Display repository pull requests with authors and status.
 
 Display commit activity over the last year as a line chart.
 
+<img src="./preview/github.CommitActivityLine.png" alt="CommitActivityLine widget preview" width="640" />
+
 **Parameters:**
 
 | Parameter    | Type   | Required | Default           | Description                       |
