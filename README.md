@@ -210,7 +210,7 @@ createGitHubClient({
 
 Display repository information with stats (stars, forks, issues).
 
-![](./preview/github.RepoBadge.png)
+<img src="./preview/github.RepoBadge.png" alt="RepoBadge widget preview" width="320" />
 
 **Parameters:**
 
