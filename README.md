@@ -261,6 +261,8 @@ Display GitHub user profile information.
 
 Display GitHub organization information.
 
+<img src="./preview/github.OrgBadge.png" alt="OrgBadge widget preview" width="320" />
+
 **Parameters:**
 
 | Parameter      | Type   | Required | Default        | Description          |
