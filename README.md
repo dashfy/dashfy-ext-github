@@ -52,7 +52,7 @@ bun add @getdashfy/ext-github
 
 ### 1. Server Setup
 
-Register the GitHub API client in your Dashfy server:
+Register the GitHub API client in your Dashfy server (`dashfy.server.ts`):
 
 ```ts
 import { Dashfy } from '@getdashfy/server'
@@ -80,7 +80,7 @@ await dashfy.start()
 
 ### 2. Client Setup
 
-Register GitHub widgets in your React application:
+Register GitHub widgets in your React application (`App.tsx`):
 
 ```tsx
 import { WidgetRegistry } from '@getdashfy/ui'
@@ -116,10 +116,9 @@ WidgetRegistry.addExtension('github', {
 
 ### 3. Dashboard Configuration
 
-Add GitHub widgets to your dashboard configuration:
+Add GitHub widgets to your dashboard configuration (`dashfy.config.yml`):
 
 ```yaml
-# dashfy.config.yml
 dashboards:
   - title: GitHub Dashboard
     columns: 3
@@ -174,7 +173,7 @@ createGitHubClient({
   token: process.env.GITHUB_TOKEN!,
 
   // Request timeout in milliseconds
-  timeout: 10000, // default
+  timeout: 10_000, // default
 })
 ```
 
@@ -183,7 +182,6 @@ createGitHubClient({
 You can use environment variables for configuration:
 
 ```bash
-# .env
 GITHUB_TOKEN=ghp_your_token_here
 ```
 
