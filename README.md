@@ -539,9 +539,9 @@ This project is licensed under the AGPL-3.0 License - see the [LICENSE](./LICENS
 
 <p align="center">
   <picture>
-    <source srcset="./public/brand/dashfy-wordmark-black.png" media="(prefers-color-scheme: light)">
-    <source srcset="./public/brand/dashfy-wordmark-white.png" media="(prefers-color-scheme: dark)">
-    <img src="./public/brand/dashfy-wordmark-black.png" alt="Header banner">
+    <source srcset="https://raw.githubusercontent.com/dashfy/dashfy-brand/refs/heads/main/dashfy-wordmark-black.png" media="(prefers-color-scheme: light)">
+    <source srcset="https://raw.githubusercontent.com/dashfy/dashfy-brand/refs/heads/main/dashfy-wordmark-white.png" media="(prefers-color-scheme: dark)">
+    <img src="https://raw.githubusercontent.com/dashfy/dashfy-brand/refs/heads/main/dashfy-wordmark-black.png" alt="Header banner">
   </picture>
 </p>
 
