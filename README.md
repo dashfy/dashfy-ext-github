@@ -288,6 +288,8 @@ Display GitHub organization information.
 
 Display repository branches with commit authors and dates.
 
+<img src="./preview/github.Branches.png" alt="Branches widget preview" width="640" />
+
 **Parameters:**
 
 | Parameter    | Type   | Required | Default    | Description                       |
