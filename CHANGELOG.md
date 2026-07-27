@@ -1,5 +1,13 @@
 # @getdashfy/ext-github
 
+## 0.1.1
+
+### Patch Changes
+
+- Register `TrafficViewsHistogram` and `TrafficClonesHistogram` in the extension manifest so they are discoverable by the Dashfy registry, and correct the documented default widget titles for `UserBadge`, `Status` and the traffic charts.
+
+- [`db81c40`](https://github.com/dashfy/dashfy-ext-github/commit/db81c405455d3b47952e9f670aeac9c5f26ba1de) Thanks [@brenopolanski](https://github.com/brenopolanski)! - Register `TrafficViewsHistogram` and `TrafficClonesHistogram` in the extension manifest so they are discoverable by the Dashfy registry, and correct the documented default widget titles for `UserBadge`, `Status` and the traffic charts.
+
 ## 0.1.0
 
 ### Initial Release

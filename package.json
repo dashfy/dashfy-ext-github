@@ -1,6 +1,6 @@
 {
   "name": "@getdashfy/ext-github",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "GitHub extension for Dashfy - Display GitHub data with beautiful widgets and charts",
   "keywords": [
     "dashfy",
