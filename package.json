@@ -42,6 +42,8 @@
       "PullRequests",
       "ContributorsStats",
       "CommitActivityLine",
+      "TrafficViewsHistogram",
+      "TrafficClonesHistogram",
       "Gitmap"
     ],
     "client": {

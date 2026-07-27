@@ -8,7 +8,7 @@
 
 This extension provides widgets to visualize GitHub repositories, users, organizations, pull requests, branches, contributions, and more.
 
-![](./preview/dashfy-ext-github.png)
+![Dashfy dashboard with GitHub extension widgets](https://raw.githubusercontent.com/dashfy/dashfy-ext-github/refs/heads/main/preview/dashfy-ext-github.png)
 
 ## Features
 
@@ -204,6 +204,27 @@ createGitHubClient({
 })
 ```
 
+## API endpoints
+
+`createGitHubClient` registers the endpoints below. Widgets subscribe to them through the `endpoint` parameter, and you can call any of them from your own custom widgets.
+
+| Endpoint            | Parameters              | Returns                                         |
+| ------------------- | ----------------------- | ----------------------------------------------- |
+| `user`              | `user`                  | User profile                                    |
+| `organization`      | `organization`          | Organization profile                            |
+| `repository`        | `repository`            | Repository details and stats                    |
+| `branches`          | `repository`, `perPage` | Branches sorted by most recent commit           |
+| `pullRequests`      | `repository`, `state`   | Pull requests filtered by state                 |
+| `issues`            | `repository`, `state`   | Issues filtered by state                        |
+| `contributorsStats` | `repository`            | Contributors with commit counts                 |
+| `commitActivity`    | `repository`            | Weekly commit totals for the last 52 weeks      |
+| `trafficViews`      | `repository`            | Views for the last 14 days (needs push access)  |
+| `trafficClones`     | `repository`            | Clones for the last 14 days (needs push access) |
+| `status`            | -                       | GitHub platform status                          |
+| `contributions`     | `user`                  | Contribution calendar data                      |
+
+`issues` has no built-in widget yet — it is available for custom widgets.
+
 ## Available widgets
 
 ### Badges
@@ -212,7 +233,7 @@ createGitHubClient({
 
 Display repository information with stats (stars, forks, issues).
 
-<img src="./preview/github.RepoBadge.png" alt="RepoBadge widget preview" width="320" />
+<img src="https://raw.githubusercontent.com/dashfy/dashfy-ext-github/refs/heads/main/preview/github.RepoBadge.png" alt="RepoBadge widget preview" width="320" />
 
 **Parameters:**
 
@@ -238,16 +259,16 @@ Display repository information with stats (stars, forks, issues).
 
 Display GitHub user profile information.
 
-<img src="./preview/github.UserBadge.png" alt="UserBadge widget preview" width="320" />
+<img src="https://raw.githubusercontent.com/dashfy/dashfy-ext-github/refs/heads/main/preview/github.UserBadge.png" alt="UserBadge widget preview" width="320" />
 
 **Parameters:**
 
-| Parameter  | Type   | Required | Default  | Description          |
-| ---------- | ------ | -------- | -------- | -------------------- |
-| `user`     | string | yes      | -        | GitHub username      |
-| `title`    | string | no       | "User"   | Custom widget title  |
-| `api`      | string | no       | "github" | API subscription ID  |
-| `endpoint` | string | no       | "user"   | API endpoint to call |
+| Parameter  | Type   | Required | Default       | Description          |
+| ---------- | ------ | -------- | ------------- | -------------------- |
+| `user`     | string | yes      | -             | GitHub username      |
+| `title`    | string | no       | "GitHub User" | Custom widget title  |
+| `api`      | string | no       | "github"      | API subscription ID  |
+| `endpoint` | string | no       | "user"        | API endpoint to call |
 
 **Example:**
 
@@ -263,7 +284,7 @@ Display GitHub user profile information.
 
 Display GitHub organization information.
 
-<img src="./preview/github.OrgBadge.png" alt="OrgBadge widget preview" width="320" />
+<img src="https://raw.githubusercontent.com/dashfy/dashfy-ext-github/refs/heads/main/preview/github.OrgBadge.png" alt="OrgBadge widget preview" width="320" />
 
 **Parameters:**
 
@@ -290,13 +311,14 @@ Display GitHub organization information.
 
 Display repository branches with commit authors and dates.
 
-<img src="./preview/github.Branches.png" alt="Branches widget preview" width="640" />
+<img src="https://raw.githubusercontent.com/dashfy/dashfy-ext-github/refs/heads/main/preview/github.Branches.png" alt="Branches widget preview" width="640" />
 
 **Parameters:**
 
 | Parameter    | Type   | Required | Default    | Description                       |
 | ------------ | ------ | -------- | ---------- | --------------------------------- |
 | `repository` | string | yes      | -          | Repository in format "owner/repo" |
+| `perPage`    | number | no       | 30         | Number of branches to fetch       |
 | `title`      | string | no       | "Branches" | Custom widget title               |
 | `api`        | string | no       | "github"   | API subscription ID               |
 | `endpoint`   | string | no       | "branches" | API endpoint to call              |
@@ -315,7 +337,7 @@ Display repository branches with commit authors and dates.
 
 Display repository pull requests with authors and status.
 
-<img src="./preview/github.PullRequests.png" alt="PullRequests widget preview" width="640" />
+<img src="https://raw.githubusercontent.com/dashfy/dashfy-ext-github/refs/heads/main/preview/github.PullRequests.png" alt="PullRequests widget preview" width="640" />
 
 **Parameters:**
 
@@ -340,11 +362,21 @@ Display repository pull requests with authors and status.
 
 ### Charts & Analytics
 
+Each chart ships in three flavours. The `*Line` and `*Histogram` widgets are thin wrappers that preset the chart style, while the base component accepts a `type` of `"area"` or `"bar"`:
+
+| Base component        | Area variant         | Bar variant               |
+| --------------------- | -------------------- | ------------------------- |
+| `CommitActivityChart` | `CommitActivityLine` | `CommitActivityHistogram` |
+| `TrafficViewsChart`   | `TrafficViewsLine`   | `TrafficViewsHistogram`   |
+| `TrafficClonesChart`  | `TrafficClonesLine`  | `TrafficClonesHistogram`  |
+
+All three accept the same parameters, so the tables below apply to every variant.
+
 #### `CommitActivityLine`
 
-Display commit activity over the last year as a line chart.
+Display commit activity over the last year as an area chart.
 
-<img src="./preview/github.CommitActivityLine.png" alt="CommitActivityLine widget preview" width="640" />
+<img src="https://raw.githubusercontent.com/dashfy/dashfy-ext-github/refs/heads/main/preview/github.CommitActivityLine.png" alt="CommitActivityLine widget preview" width="640" />
 
 **Parameters:**
 
@@ -369,7 +401,7 @@ Display commit activity over the last year as a line chart.
 
 Display top contributors with commit statistics.
 
-<img src="./preview/github.ContributorsStats.png" alt="ContributorsStats widget preview" width="640" />
+<img src="https://raw.githubusercontent.com/dashfy/dashfy-ext-github/refs/heads/main/preview/github.ContributorsStats.png" alt="ContributorsStats widget preview" width="640" />
 
 **Parameters:**
 
@@ -392,16 +424,16 @@ Display top contributors with commit statistics.
 
 #### `TrafficViewsHistogram`
 
-Display repository traffic views (requires push access).
+Display repository traffic views over the last 14 days as a bar chart (requires push access).
 
 **Parameters:**
 
-| Parameter    | Type   | Required | Default         | Description                       |
-| ------------ | ------ | -------- | --------------- | --------------------------------- |
-| `repository` | string | yes      | -               | Repository in format "owner/repo" |
-| `title`      | string | no       | "Traffic Views" | Custom widget title               |
-| `api`        | string | no       | "github"        | API subscription ID               |
-| `endpoint`   | string | no       | "trafficViews"  | API endpoint to call              |
+| Parameter    | Type   | Required | Default        | Description                       |
+| ------------ | ------ | -------- | -------------- | --------------------------------- |
+| `repository` | string | yes      | -              | Repository in format "owner/repo" |
+| `title`      | string | no       | "Visitors"     | Custom widget title               |
+| `api`        | string | no       | "github"       | API subscription ID               |
+| `endpoint`   | string | no       | "trafficViews" | API endpoint to call              |
 
 **Example:**
 
@@ -415,16 +447,16 @@ Display repository traffic views (requires push access).
 
 #### `TrafficClonesHistogram`
 
-Display repository traffic clones (requires push access).
+Display repository traffic clones over the last 14 days as a bar chart (requires push access).
 
 **Parameters:**
 
-| Parameter    | Type   | Required | Default          | Description                       |
-| ------------ | ------ | -------- | ---------------- | --------------------------------- |
-| `repository` | string | yes      | -                | Repository in format "owner/repo" |
-| `title`      | string | no       | "Traffic Clones" | Custom widget title               |
-| `api`        | string | no       | "github"         | API subscription ID               |
-| `endpoint`   | string | no       | "trafficClones"  | API endpoint to call              |
+| Parameter    | Type   | Required | Default         | Description                       |
+| ------------ | ------ | -------- | --------------- | --------------------------------- |
+| `repository` | string | yes      | -               | Repository in format "owner/repo" |
+| `title`      | string | no       | "Clones"        | Custom widget title               |
+| `api`        | string | no       | "github"        | API subscription ID               |
+| `endpoint`   | string | no       | "trafficClones" | API endpoint to call              |
 
 **Example:**
 
@@ -442,7 +474,7 @@ Display repository traffic clones (requires push access).
 
 Display GitHub contribution heatmap (similar to GitHub's contribution graph).
 
-<img src="./preview/github.Gitmap.png" alt="Gitmap widget preview" width="640" />
+<img src="https://raw.githubusercontent.com/dashfy/dashfy-ext-github/refs/heads/main/preview/github.Gitmap.png" alt="Gitmap widget preview" width="640" />
 
 **Parameters:**
 
@@ -469,15 +501,15 @@ Display GitHub contribution heatmap (similar to GitHub's contribution graph).
 
 Display GitHub's current system status.
 
-<img src="./preview/github.Status.png" alt="Status widget preview" width="320" />
+<img src="https://raw.githubusercontent.com/dashfy/dashfy-ext-github/refs/heads/main/preview/github.Status.png" alt="Status widget preview" width="320" />
 
 **Parameters:**
 
-| Parameter  | Type   | Required | Default         | Description          |
-| ---------- | ------ | -------- | --------------- | -------------------- |
-| `title`    | string | no       | "GitHub Status" | Custom widget title  |
-| `api`      | string | no       | "github"        | API subscription ID  |
-| `endpoint` | string | no       | "status"        | API endpoint to call |
+| Parameter  | Type   | Required | Default  | Description          |
+| ---------- | ------ | -------- | -------- | -------------------- |
+| `title`    | string | no       | "GitHub" | Custom widget title  |
+| `api`      | string | no       | "github" | API subscription ID  |
+| `endpoint` | string | no       | "status" | API endpoint to call |
 
 **Example:**
 
