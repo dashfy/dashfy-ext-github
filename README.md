@@ -362,7 +362,7 @@ Display repository pull requests with authors and status.
 
 ### Charts & Analytics
 
-Each chart ships in three flavours. The `*Line` and `*Histogram` widgets are thin wrappers that preset the chart style, while the base component accepts a `type` of `"area"` or `"bar"`:
+Each chart ships in three flavours. The `Line` and `Histogram` widgets are thin wrappers that preset the chart style, while the base component accepts a `type` of `"area"` or `"bar"`:
 
 | Base component        | Area variant         | Bar variant               |
 | --------------------- | -------------------- | ------------------------- |
