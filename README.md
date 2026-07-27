@@ -469,7 +469,7 @@ Display GitHub contribution heatmap (similar to GitHub's contribution graph).
 
 Display GitHub's current system status.
 
-<img src="./preview/github.Status.png" alt="Status widget preview" width="640" />
+<img src="./preview/github.Status.png" alt="Status widget preview" width="320" />
 
 **Parameters:**
 
