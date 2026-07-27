@@ -534,15 +534,3 @@ Join the conversation on X (Twitter) and follow [@dashfydev](https://x.com/dashf
 ## License
 
 This project is licensed under the AGPL-3.0 License - see the [LICENSE](./LICENSE) file for details.
-
----
-
-<p align="center">
-  <picture>
-    <source srcset="https://raw.githubusercontent.com/dashfy/dashfy-brand/refs/heads/main/dashfy-wordmark-black.png" media="(prefers-color-scheme: light)">
-    <source srcset="https://raw.githubusercontent.com/dashfy/dashfy-brand/refs/heads/main/dashfy-wordmark-white.png" media="(prefers-color-scheme: dark)">
-    <img src="https://raw.githubusercontent.com/dashfy/dashfy-brand/refs/heads/main/dashfy-wordmark-black.png" alt="Header banner">
-  </picture>
-</p>
-
-**For AI/LLM agents:** [https://dashfy.dev/llms.txt](https://dashfy.dev/llms.txt)
