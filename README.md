@@ -176,6 +176,11 @@ createGitHubClient({
 
   // Request timeout in milliseconds
   timeout: 10_000, // default
+
+  // Base URL of a github-contributions-api instance, used by the
+  // `contributions` endpoint (the Gitmap widget). Point this at a
+  // self-hosted deployment if the public instance is unavailable.
+  contributionsApiBaseUrl: 'https://github-contributions-api.jogruber.de/v4', // default
 })
 ```
 
@@ -551,7 +556,13 @@ GitHub API has rate limits that vary based on authentication:
 
 ### Contribution heatmap not loading
 
-**Solution:** The Gitmap widget uses a third-party API ([github-contributions-api](https://github.com/grubersjoe/github-contributions-api)) which may have its own rate limits.
+**Solution:** The Gitmap widget uses a third-party API ([github-contributions-api](https://github.com/grubersjoe/github-contributions-api)) which may have its own rate limits, or may occasionally fail to scrape GitHub (e.g. an `"other side closed"` error). The client first requests the last year of data, then retries with full history before giving up. If the public instance stays unavailable, [self-host it](https://github.com/grubersjoe/github-contributions-api) and point the extension at your instance:
+
+```ts
+createGitHubClient({
+  contributionsApiBaseUrl: 'https://your-host/v4',
+})
+```
 
 ## Contributing
 

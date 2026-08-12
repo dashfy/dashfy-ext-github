@@ -362,7 +362,7 @@ describe('createGitHubClient', () => {
   })
 
   describe('contributions endpoint', () => {
-    it('should fetch user contributions', async () => {
+    it('should fetch the last year of contributions by default', async () => {
       const mockContributions = {
         total: { '2024': 365, '2023': 200 },
         contributions: [
@@ -377,9 +377,10 @@ describe('createGitHubClient', () => {
 
       const result = await api.contributions!({ user: 'octocat' })
 
+      expect(mockRequest).toHaveBeenCalledOnce()
       expect(mockRequest).toHaveBeenCalledWith(
         expect.objectContaining({
-          url: 'https://github-contributions-api.jogruber.de/v4/octocat',
+          url: 'https://github-contributions-api.jogruber.de/v4/octocat?y=last',
           method: 'GET',
           headers: expect.objectContaining({
             'User-Agent': '@getdashfy/ext-github',
@@ -404,7 +405,7 @@ describe('createGitHubClient', () => {
       await api.contributions!({ user: 'testuser' })
 
       expect(mockLogger.info).toHaveBeenCalledWith(
-        '[github.contributions] Fetching https://github-contributions-api.jogruber.de/v4/testuser',
+        '[github.contributions] Fetching https://github-contributions-api.jogruber.de/v4/testuser?y=last',
       )
     })
 
@@ -424,6 +425,88 @@ describe('createGitHubClient', () => {
           timeout: 5000,
         }),
       )
+    })
+
+    it('should use a custom contributionsApiBaseUrl', async () => {
+      const mockContributions = { total: {}, contributions: [] }
+      const mockRequest = vi.fn().mockResolvedValue(mockContributions)
+      const client = createGitHubClient({
+        contributionsApiBaseUrl: 'http://localhost:3000/v4',
+      })
+      const api = client({ logger: mockLogger, request: mockRequest })
+
+      await api.contributions!({ user: 'octocat' })
+
+      expect(mockRequest).toHaveBeenCalledWith(
+        expect.objectContaining({
+          url: 'http://localhost:3000/v4/octocat?y=last',
+        }),
+      )
+    })
+
+    it('should fall back to full history when the last-year request fails', async () => {
+      const fullHistoryContributions = {
+        total: { '2024': 365, '2023': 200 },
+        contributions: [{ date: '2024-01-01', count: 5, level: 4 }],
+      }
+      const mockRequest = vi
+        .fn()
+        .mockRejectedValueOnce(new Error('HTTP 500: other side closed'))
+        .mockResolvedValueOnce(fullHistoryContributions)
+      const client = createGitHubClient({})
+      const api = client({ logger: mockLogger, request: mockRequest })
+
+      const result = await api.contributions!({ user: 'octocat' })
+
+      expect(mockRequest).toHaveBeenCalledTimes(2)
+      expect(mockRequest).toHaveBeenNthCalledWith(
+        1,
+        expect.objectContaining({
+          url: 'https://github-contributions-api.jogruber.de/v4/octocat?y=last',
+        }),
+      )
+      expect(mockRequest).toHaveBeenNthCalledWith(
+        2,
+        expect.objectContaining({
+          url: 'https://github-contributions-api.jogruber.de/v4/octocat',
+        }),
+      )
+      expect(mockLogger.warn).toHaveBeenCalledWith(
+        expect.stringContaining('Failed to fetch last year'),
+      )
+      expect(result).toEqual(fullHistoryContributions)
+    })
+
+    it('should fall back to full history when the API returns an error body', async () => {
+      const fullHistoryContributions = {
+        total: { '2024': 365 },
+        contributions: [{ date: '2024-01-01', count: 1, level: 1 }],
+      }
+      const mockRequest = vi
+        .fn()
+        .mockResolvedValueOnce({ error: 'other side closed' })
+        .mockResolvedValueOnce(fullHistoryContributions)
+      const client = createGitHubClient({})
+      const api = client({ logger: mockLogger, request: mockRequest })
+
+      const result = await api.contributions!({ user: 'octocat' })
+
+      expect(mockRequest).toHaveBeenCalledTimes(2)
+      expect(result).toEqual(fullHistoryContributions)
+    })
+
+    it('should throw a clear error when both attempts fail', async () => {
+      const mockRequest = vi
+        .fn()
+        .mockRejectedValueOnce(new Error('HTTP 500: other side closed'))
+        .mockRejectedValueOnce(new Error('HTTP 500: other side closed'))
+      const client = createGitHubClient({})
+      const api = client({ logger: mockLogger, request: mockRequest })
+
+      await expect(api.contributions!({ user: 'octocat' })).rejects.toThrow(
+        'GitHub contributions API error: HTTP 500: other side closed',
+      )
+      expect(mockRequest).toHaveBeenCalledTimes(2)
     })
 
     it('should return contributions with correct structure', async () => {

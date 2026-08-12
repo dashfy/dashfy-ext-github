@@ -22,6 +22,9 @@ const DEFAULT_TIMEOUT = 10_000
 const DEFAULT_USER_AGENT = '@getdashfy/ext-github'
 const DEFAULT_ACCEPT_HEADER = 'application/vnd.github+json'
 
+/** @see https://github.com/grubersjoe/github-contributions-api */
+const DEFAULT_CONTRIBUTIONS_API_BASE_URL = 'https://github-contributions-api.jogruber.de/v4'
+
 export interface GitHubClientConfig {
   /**
    * GitHub API base URL
@@ -39,6 +42,14 @@ export interface GitHubClientConfig {
    * @default 10_000
    */
   timeout?: number
+  /**
+   * Base URL of a github-contributions-api instance, used by the `contributions`
+   * endpoint (the Gitmap widget). Point this at a self-hosted deployment if the
+   * public instance is unavailable or blocked.
+   * @default 'https://github-contributions-api.jogruber.de/v4'
+   * @see https://github.com/grubersjoe/github-contributions-api
+   */
+  contributionsApiBaseUrl?: string
 }
 
 /**
@@ -48,6 +59,8 @@ export interface GitHubClientConfig {
  * @param config.baseUrl - GitHub API base URL (default: 'https://api.github.com')
  * @param config.token - Personal access token for authentication
  * @param config.timeout - Request timeout in milliseconds (default: 10_000)
+ * @param config.contributionsApiBaseUrl - Base URL of a github-contributions-api
+ *   instance, used by `contributions` (the Gitmap widget)
  * @returns API registration function for Dashfy
  *
  * @example
@@ -69,7 +82,12 @@ export interface GitHubClientConfig {
  * @see https://github.com/settings/tokens - Get your GitHub personal access token
  */
 export function createGitHubClient(config: GitHubClientConfig): APIRegistration {
-  const { baseUrl = DEFAULT_API_BASE_URL, token, timeout = DEFAULT_TIMEOUT } = config
+  const {
+    baseUrl = DEFAULT_API_BASE_URL,
+    token,
+    timeout = DEFAULT_TIMEOUT,
+    contributionsApiBaseUrl = DEFAULT_CONTRIBUTIONS_API_BASE_URL,
+  } = config
 
   return ({ logger, request }) => {
     if (!request) {
@@ -122,6 +140,28 @@ export function createGitHubClient(config: GitHubClientConfig): APIRegistration 
       } catch (error) {
         throw new Error(`GitHub API error: ${getErrorMessage(error)}`)
       }
+    }
+
+    /**
+     * Fetch a single github-contributions-api URL and validate the response
+     * shape. The API can return an error body (e.g. `{ "error": "..." }`)
+     * alongside a non-2xx status, which the underlying request helper
+     * already rejects on; this also guards against an unexpected 2xx/error
+     * payload.
+     */
+    const requestContributions = async (url: string): Promise<GithubContributions> => {
+      const data = (await request({
+        url,
+        method: 'GET',
+        headers: { 'User-Agent': DEFAULT_USER_AGENT },
+        timeout,
+      })) as GithubContributions & { error?: string }
+
+      if (data.error || !data.contributions) {
+        throw new Error(data.error ?? 'unexpected response shape')
+      }
+
+      return { total: data.total, contributions: data.contributions }
     }
 
     return {
@@ -318,28 +358,31 @@ export function createGitHubClient(config: GitHubClientConfig): APIRegistration 
       },
 
       /**
-       * Get user contributions (GitHub contribution graph data).
+       * Get user contributions (GitHub contribution graph data). Tries the
+       * last year first (what Gitmap renders), falling back to full history
+       * if that request fails.
        * Uses the github-contributions-api by @grubersjoe.
        *
        * @see https://github.com/grubersjoe/github-contributions-api
        */
       contributions: async ({ user }: { user: string }): Promise<GithubContributions> => {
-        const url = `https://github-contributions-api.jogruber.de/v4/${user}`
+        const lastYearUrl = `${contributionsApiBaseUrl}/${user}?y=last`
+        const fullHistoryUrl = `${contributionsApiBaseUrl}/${user}`
 
-        const response = await request({
-          url,
-          method: 'GET',
-          headers: { 'User-Agent': DEFAULT_USER_AGENT },
-          timeout,
-        })
+        logger.info(`[github.contributions] Fetching ${lastYearUrl}`)
 
-        logger.info(`[github.contributions] Fetching ${url}`)
+        try {
+          return await requestContributions(lastYearUrl)
+        } catch (error) {
+          logger.warn(
+            `[github.contributions] Failed to fetch last year (${getErrorMessage(error)}), retrying with full history: ${fullHistoryUrl}`,
+          )
 
-        const data = response as GithubContributions
-
-        return {
-          total: data.total,
-          contributions: data.contributions,
+          try {
+            return await requestContributions(fullHistoryUrl)
+          } catch (fallbackError) {
+            throw new Error(`GitHub contributions API error: ${getErrorMessage(fallbackError)}`)
+          }
         }
       },
     }
